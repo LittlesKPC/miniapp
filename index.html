@@ -4,10 +4,39 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Littles Mini App</title>
+  <!-- Обязательный SDK -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    html,body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+    .wrap { padding: 16px; }
+    .card { background: var(--tg-theme-bg-color, #fff); color: var(--tg-theme-text-color, #111);
+            border-radius: 12px; padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.08);}
+    .row { display:flex; gap:8px; margin-top:12px; align-items:center; }
+    input,select,button,textarea {
+      width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ddd; font-size: 16px;
+      background: var(--tg-theme-secondary-bg-color, #f2f2f2); color: var(--tg-theme-text-color, #111);
+    }
+    label { font-weight: 600; font-size: 14px; opacity:.9 }
+    .muted { font-size: 12px; opacity:.7; margin-top:8px }
+  </style>
 </head>
 <body>
-  <h1>👋 Привет! Это мой первый Telegram Mini App</h1>
-  <p>Если ты видишь эту страницу — всё работает!</p>
+  <div class="wrap">
+    <h2>👋 Привет из мини-аппа</h2>
+    <div class="card">
+      <div class="row"><label>Имя</label><input id="name" placeholder="Ваше имя" /></div>
+      <div class="row"><label>Выберите активность</label>
+        <select id="activity">
+          <option>Мастер-класс</option>
+          <option>Бронирование столика</option>
+          <option>Детский день рождения</option>
+        </select>
+      </div>
+      <div class="row"><label>Комментарий</label><textarea id="comment" rows="3" placeholder="Пожелания"></textarea></div>
+      <p class="muted">Кнопка «Отправить» — внизу (MainButton Telegram).</p>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
 </body>
 </html>
